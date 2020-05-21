@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link rel='stylesheet' href='{{ url_for("static", filename="bootstrap.css") }}' />
+    <link rel='stylesheet' href='{{ url_for("static", filename="calender.css") }}' />
+    <title>Calender</title>
+
+</head>
+
+<body>
+    <div id="hidden-div">
+        <div id="year-hidden">{{year}}</div>
+        <div id="month-hidden">{{month}}</div>
+    </div>
+    <div id="calender">
+        <div id="header">
+            <div id="current-month-year">{{ fullNameOfMonth }} {{ year }}</div>
+        </div>
+        <div id="days" class="col-7-div">
+            <div class="day center"> S</div>
+            <div class="day center"> M</div>
+            <div class="day center"> T</div>
+            <div class="day center"> W</div>
+            <div class="day center"> T</div>
+            <div class="day center"> F</div>
+            <div class="day center"> S</div>
+        </div>
+        <div id="dates" class="col-7-div">
+            {% for blank_div in blank_divs %}
+                <div class="data center"></div>
+            {% endfor %}
+            {% for data in datalist %}
+                {% if data[1]==1 %}
+                    <div class="date center overflowsign">&#10007;</div>
+                {% else %}
+                    <div class="date center">{{ data[0] }}</div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+
+        <hr>
+        
+        {% if homebutton==False %}
+            <a class="btn btn-primary btn-block my-2" href="/">Home</a>
+        {% else %}
+            <div id="goto-form" class="container my-2">
+                <form method="POST">
+                    {{form.hidden_tag()}}
+                    {{form.year.label}}
+                    {{form.year(class="form-control", value="")}}<br>
+                    {{form.month.label}}
+                    {{form.month(class="form-control", value="")}}<br>
+                    {{form.submit(class="btn btn-primary btn-block")}}
+                </form>
+            </div>
+        {% endif %}
+
+
+        
+
+        
+    </div>
+    
+
+    <script src='{{ url_for("static", filename="jQuery.js") }}'></script>
+    <script src='{{ url_for("static", filename="bootstrap.js") }}'></script>
+    <script src='{{ url_for("static", filename="calender.js") }}'></script>
+</body>
+
+</html>

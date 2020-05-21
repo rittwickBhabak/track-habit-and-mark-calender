@@ -1,0 +1,60 @@
+#calender{
+        width: 350px;
+    border: 1px solid black;
+    margin: auto;
+}
+#header{
+    height: 50px;
+    text-align: center;
+}
+
+#current-month-year{
+    font-size: 40px;
+}
+
+#days{
+    margin-bottom: 10px;
+}
+
+.date:hover{
+    background-color: rgb(230, 230, 230);
+}
+#dates{  
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.col-7-div{
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    height: 50px;
+    font-size: 20px;
+}
+.date{
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 5px;
+    height: 40px;
+}
+.overflowsign{
+    background-color: greenyellow;
+    font-size: 40px;
+    cursor: default;
+}
+.overflowsign:hover{
+    background-color: greenyellow;
+}
+#hidden-div{
+    display: none;
+}
+#year-hidden{
+    display: none;
+}
+#month-hidden{
+    display: none;
+}
